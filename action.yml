@@ -17,7 +17,7 @@ runs:
   steps:
     - run: |
         set -xeo pipefail
-        sudo curl -Ls https://raw.githubusercontent.com/gruntwork-io/gruntwork-installer/${{ inputs.GRUNTWORK_INSTALLER_VERSION }}/bootstrap-gruntwork-installer.sh | bash /dev/stdin --version "$GRUNTWORK_INSTALLER_VERSION"
+        sudo curl -Ls https://raw.githubusercontent.com/gruntwork-io/gruntwork-installer/${{ inputs.GRUNTWORK_INSTALLER_VERSION }}/bootstrap-gruntwork-installer.sh | bash /dev/stdin --version ${{ inputs.GRUNTWORK_INSTALLER_VERSION }}
         gruntwork-install --binary-name 'boilerplate' --repo 'https://github.com/gruntwork-io/boilerplate' --tag ${{ inputs.BOILERPLATE_VERSION }} --no-sudo true
       shell: bash
       env:
