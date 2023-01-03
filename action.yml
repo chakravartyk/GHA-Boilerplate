@@ -1,0 +1,24 @@
+name: 'Install Boilerplate'
+description: 'Github Action to install Boilerplate'
+inputs:
+  GRUNTWORK_INSTALLER_VERSION:
+    description: 'GRUNTWORK_INSTALLER_VERSION'
+    required: true
+    default: v0.0.38
+  BOILERPLATE_VERSION:
+    description: 'BOILERPLATE_VERSION'
+    required: true
+    default: v0.5.3
+  GITHUB_OAUTH_TOKEN:
+    description: GITHUB_OAUTH_TOKEN
+    required: true
+runs:
+  using: "composite"
+  steps:
+    - run: |
+        set -xeo pipefail
+        sudo curl -Ls https://raw.githubusercontent.com/gruntwork-io/gruntwork-installer/${{ inputs.GRUNTWORK_INSTALLER_VERSION }}/bootstrap-gruntwork-installer.sh | bash /dev/stdin --version "$GRUNTWORK_INSTALLER_VERSION"
+        gruntwork-install --binary-name 'boilerplate' --repo 'https://github.com/gruntwork-io/boilerplate' --tag ${{ inputs.BOILERPLATE_VERSION }} --no-sudo true
+      shell: bash
+      env:
+        GITHUB_OAUTH_TOKEN: ${{ inputs.GITHUB_OAUTH_TOKEN }}
