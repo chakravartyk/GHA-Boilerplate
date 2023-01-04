@@ -12,15 +12,6 @@ ARG TERRAGRUNT_VERSION="v0.40.2"          # https://github.com/gruntwork-io/terr
 
 SHELL ["bash", "-euxo", "pipefail", "-c" ]
 
-RUN mkdir ~/.ssh
-RUN chmod 0700 ~/.ssh
-RUN echo -e "Host github.com\n  CheckHostIP no" > ~/.ssh/config
-RUN curl --silent https://api.github.com/meta | \
-  python3 -c 'import json,sys;print(*["github.com " + x for x in json.load(sys.stdin)["ssh_keys"]], sep="\n")' \
-  >> ~/.ssh/known_hosts
-RUN chmod 0600 ~/.ssh/known_hosts
-
-
 # Install gruntwork installer
 RUN curl -Ls https://raw.githubusercontent.com/gruntwork-io/gruntwork-installer/"$GRUNTWORK_INSTALLER_VERSION"/bootstrap-gruntwork-installer.sh | bash /dev/stdin --no-sudo true --version "$GRUNTWORK_INSTALLER_VERSION"
 
