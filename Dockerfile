@@ -5,10 +5,10 @@ FROM gcr.io/google.com/cloudsdktool/google-cloud-cli:alpine
 ARG GITHUB_OAUTH_TOKEN
 
 # Setting defaults - can be overwritten using  `docker build --build-arg VAR_VERSION=x.y.z`
-ARG TERRAFORM_VERSION="1.0.11"            # https://github.com/hashicorp/terraform/releases
-ARG GRUNTWORK_INSTALLER_VERSION="v0.0.38" # https://github.com/gruntwork-io/gruntwork-installer/releases
-ARG BOILERPLATE_VERSION="v0.5.3"          # https://github.com/gruntwork-io/boilerplate/releases
-ARG TERRAGRUNT_VERSION="v0.40.2"          # https://github.com/gruntwork-io/terragrunt/releases
+# ARG TERRAFORM_VERSION="1.0.11"            # https://github.com/hashicorp/terraform/releases
+# ARG GRUNTWORK_INSTALLER_VERSION="v0.0.38" # https://github.com/gruntwork-io/gruntwork-installer/releases
+# ARG BOILERPLATE_VERSION="v0.5.3"          # https://github.com/gruntwork-io/boilerplate/releases
+# ARG TERRAGRUNT_VERSION="v0.40.2"          # https://github.com/gruntwork-io/terragrunt/releases
 
 SHELL ["bash", "-euxo", "pipefail", "-c" ]
 
