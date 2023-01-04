@@ -1,0 +1,22 @@
+# action.yml
+name: 'Boilerplate install'
+description: 'BP install'
+inputs:
+  GRUNTWORK_INSTALLER_VERSION:
+    description: 'GRUNTWORK_INSTALLER_VERSION'
+    required: true
+    default: v0.0.38
+  BOILERPLATE_VERSION:
+    description: 'BOILERPLATE_VERSION'
+    required: true
+    default: v0.5.3
+  GITHUB_OAUTH_TOKEN:
+    description: GITHUB_OAUTH_TOKEN
+    required: true
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - GRUNTWORK_INSTALLER_VERSION = ${{ inputs.GRUNTWORK_INSTALLER_VERSION }}
+    - BOILERPLATE_VERSION = ${{ inputs.BOILERPLATE_VERSION }}
+    - GITHUB_OAUTH_TOKEN =${{ inputs.GITHUB_OAUTH_TOKEN }}
