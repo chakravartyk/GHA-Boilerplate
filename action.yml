@@ -17,6 +17,6 @@ runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - GRUNTWORK_INSTALLER_VERSION=${{ inputs.GRUNTWORK_INSTALLER_VERSION }}
-    - BOILERPLATE_VERSION=${{ inputs.BOILERPLATE_VERSION }}
-    - GITHUB_OAUTH_TOKEN=${{ inputs.GITHUB_OAUTH_TOKEN }}
+    - ${{ inputs.GRUNTWORK_INSTALLER_VERSION }}
+    - ${{ inputs.BOILERPLATE_VERSION }}
+    - ${{ inputs.GITHUB_OAUTH_TOKEN }}
