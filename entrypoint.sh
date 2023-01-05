@@ -9,3 +9,4 @@ set -xeo pipefail
 # chmod 0600 ~/.ssh/known_hosts
 curl -Ls https://raw.githubusercontent.com/gruntwork-io/gruntwork-installer/"$1"/bootstrap-gruntwork-installer.sh | bash /dev/stdin --no-sudo true --version "$1"
 gruntwork-install --binary-name 'boilerplate' --repo 'https://github.com/gruntwork-io/boilerplate' --tag "$2" --no-sudo true
+boilerplate -v
